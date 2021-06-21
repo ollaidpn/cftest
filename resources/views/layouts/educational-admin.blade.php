@@ -13,7 +13,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <link href="{{ asset('assets/admin-formateurs/css/style.css')}}" rel="stylesheet">
 
-    @livewireStyles
+    @livewireStyles()
     @yield('includes')
     @stack('styles')
 
@@ -120,7 +120,7 @@
     <script src="{{ asset('assets/admin-formateurs/js/custom.min.js')}}"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    @livewireScripts
+    @livewireScripts()
     @stack('scripts')
     @yield('script')
 

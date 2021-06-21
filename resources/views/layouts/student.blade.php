@@ -27,7 +27,7 @@
     }
 </style>
 
-@livewireStyles
+@livewireStyles()
 @stack('styles')
 @yield('styles')
 </head>
@@ -82,7 +82,7 @@
 <script type="text/javascript" src="{{ asset('assets/front-clients/js/dashboard-script.js')}}"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="{{ asset('assets/front-clients/js/script.js')}}"></script>
-@livewireScripts
+@livewireScripts()
 @stack('scripts')
 @yield('scripts')
 </body>
