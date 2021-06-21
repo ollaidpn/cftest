@@ -42,7 +42,8 @@ return [
     |
     */
 
-    'asset_url'  => null,
+    // 'asset_url'  => null,
+    'asset_base_url' => '/application'
 
     /*
     |--------------------------------------------------------------------------
