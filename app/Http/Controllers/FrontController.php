@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Livewire\Category;
 use App\Models\Categorie;
 use App\Models\Formation;
 use App\Models\InfosSystem;
@@ -31,15 +32,16 @@ class FrontController extends Controller
         $formations = Formation::where('type', "public")->whereHas('categories', function($category) use($slug) {
             $category->where('slug', $slug);
         })->paginate(12);
-
-        return view('front.showCategorie',compact('formations', 'page_title'));
+        $Categorie =  Categorie::all();
+        return view('front.showCategorie',compact('formations', 'page_title', 'Categorie'));
     }
 
     public function courses(){
         $formations = Formation::where('type', "public")->orderByDesc('id')->paginate(12);
         $page_title = 'Nos Formations';
+        $Categorie = Categorie::all();
 
-        return view('front.courses',compact('formations', 'page_title'));
+        return view('front.courses',compact('formations', 'page_title', 'Categorie'));
     }
 
     public function showCourse($slug){
@@ -146,11 +148,12 @@ class FrontController extends Controller
     }
 
     public function search(Request $request) {
+        $Categorie =  Categorie::all();
 
         $page_title = "Résultat ".$request->search;
         $request->validate(['search' => 'string']);
         $formations = Formation::where('title', 'LIKE', '%'.$request->search.'%')->paginate(12);
-        return view('front.search', compact('page_title', 'formations'));
+        return view('front.search', compact('page_title', 'formations', 'Categorie'));
     }
 
     public function construction()

@@ -333,7 +333,10 @@
 			<div class="row">
 				<div class="col-sm-4 col-md-3 col-lg-3 col-xl-2 pb10 pt15">
 					<div class="logo-widget home2 ">
-						<img class="img-fluid " src="{{ getInfoSystem() ? getInfoSystem()->getLogo() : '' }}" style="height:67px !important;" alt="header-logo.png">
+                        <a href="{{route('home')}}">
+                            <img class="img-fluid " src="{{ getInfoSystem() ? getInfoSystem()->getLogo() : '' }}" style="height:67px !important;" alt="header-logo.png">
+
+                        </a>
 					</div>
 				</div>
 				<div class="col-sm-8 col-md-5 col-lg-6 col-xl-6 pb35 pt25 brdr_left_right">

@@ -51,72 +51,25 @@
                             <div id="panelBodySoftware" class="panel-collapse collapse show">
                                 <div class="panel-body">
                                     <div class="ui_kit_checkbox">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck14">
-                                            <label class="custom-control-label" for="customCheck14">Le droit public<span class="float-right">(03)</span></label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck15">
-                                            <label class="custom-control-label" for="customCheck15">Le droit privé <span class="float-right">(15)</span></label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck16">
-                                            <label class="custom-control-label" for="customCheck16">Le droit international public <span class="float-right">(26)</span></label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck17">
-                                            <label class="custom-control-label" for="customCheck17">Le droit international privé <span class="float-right">(14)</span></label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck18">
-                                            <label class="custom-control-label" for="customCheck18">Le droit interne <span class="float-right">(34)</span></label>
-                                        </div>
+                                        @foreach ($Categorie as $cat)
+                                            <div class="custom-control custom-checkbox">
+                                                <a href="{{route('category.show', $cat->slug)}}">
+                                                    {{$cat->nom}}
+                                                </a>
+                                            </div>
+                                        @endforeach
 
 
-                                        <a class="color-orose" href="#"><span class="fa fa-plus pr10"></span> Voir plus</a>
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="selected_filter_widget style3">
-                      <div id="accordion" class="panel-group">
-                        <div class="panel">
-                              <div class="panel-heading">
-                                  <h4 class="panel-title">
-                                    <a href="#panelBodyAuthors" class="accordion-toggle link fz20 mb15" data-toggle="collapse" data-parent="#accordion">Formateurs</a>
-                                </h4>
-                              </div>
-                            <div id="panelBodyAuthors" class="panel-collapse collapse show">
-                                <div class="panel-body">
-                                    <div class="cl_skill_checkbox">
-                                        <div class="content ui_kit_checkbox style2 text-left">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck80">
-                                                <label class="custom-control-label" for="customCheck80">Futurs choisis <span class="float-right">(103)</span></label>
-                                            </div>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                <label class="custom-control-label" for="customCheck1">Senagriculture <span class="float-right">(15)</span></label>
-                                            </div>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                                <label class="custom-control-label" for="customCheck2">Scichinta  <span class="float-right">(125)</span></label>
-                                            </div>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                                <label class="custom-control-label" for="customCheck3">illugraphic <span class="float-right">(4)</span></label>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="selected_filter_widget style3 mb30">
+                {{-- <div class="selected_filter_widget style3 mb30">
                       <div id="accordion" class="panel-group">
                         <div class="panel">
                               <div class="panel-heading">
@@ -140,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
 
         </div>

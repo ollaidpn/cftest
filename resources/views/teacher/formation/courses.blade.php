@@ -38,8 +38,8 @@
                                         <span><i class="fa fa-graduation-cap text-primary mr-2"></i>Apprenants</span><strong>{{ count($formation->students) ?? '' }}</strong></li>
                                 </ul>
                                 <div class="justify-content-between">
-                                    <a href="{{ route('admin.formations.update', $formation->id) }}" class="btn btn-primary" style="color: white; font-weight:bold">Modifier</a>
-                                    <a href="about-courses.html" class="btn btn-primary" style="color: white; font-weight:bold">Voir</a>
+                                    <a href="{{ route('teacher.formations.update', $formation->id) }}" class="btn btn-primary" style="color: white; font-weight:bold">Modifier</a>
+                                    <a href="{{ route('front.course.show', $formation->slug ?? '') }}" class="btn btn-primary" style="color: white; font-weight:bold">Voir</a>
                                 </div>
                             </div>
                         </div>

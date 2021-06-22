@@ -315,7 +315,7 @@
 
                     @if ($Enrollement && $Enrollement->formation_id == $formation->id)
                     <p class=" text-success text-left"><strong>Vous avez acheter cette formation,<br> Bon apprentissage !</strong></p>
-                    <a href="#" class="cart_btnss_white">Accéder à la formation</a>
+                    <a href="{{ route('student.take-public-courses', $formation->slug ?? '') }}" class="cart_btnss_white">Accéder à la formation</a>
                     @else
                     <form  id="test" action="{{route('front.course.enroll')}}" method="POST">
                         @csrf

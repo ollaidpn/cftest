@@ -28,6 +28,21 @@ class FormationController extends Controller
         return view(Auth::user()->role->slug.'.formation.courses', compact('formations', 'page_title'));
     }
 
+    public function indexP()
+    {
+        $page_title = "Toutes les formations";
+        $user= Auth::user();
+        if ($user->role->slug==='admin' || $user->role->slug==='educational-admin') {
+
+            $formations = Formation::orderByDesc('id')->paginate(9);
+        }
+        else{
+
+            $formations=paginate($user->formations, 9);
+        }
+        return view('educational-admin.formation.courses', compact('formations', 'page_title'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -90,6 +105,15 @@ class FormationController extends Controller
         }
 
         return view(Auth::user()->role->slug.'.formation.update', compact('formation', 'page_title'));
+    }
+
+    public function udpateP($id)
+    {
+        $page_title = "Modifier une formatioffn";
+
+        $formation = Formation::where('id',$id)->with('teams')->get()->first();
+
+        return view('educational-admin.formation.update', compact('formation', 'page_title'));
     }
 
     /**

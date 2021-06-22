@@ -353,7 +353,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (count($last_ten_formations) > 0)
+                                            {{-- @if (count($last_ten_formations) > 0)
                                                 @foreach ($last_ten_formations as $formation)
                                                     <tr>
                                                         <td>{{ $formation->title ?? '' }}</td>
@@ -375,7 +375,7 @@
                                                 @endforeach
                                             @else
                                                 Aucune formation
-                                            @endif
+                                            @endif --}}
 
                                         </tbody>
                                     </table>

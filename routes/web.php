@@ -159,9 +159,9 @@ Route::group(['prefix'=>'/responsable-pedagogique', 'middleware' => ['educationa
     Route::get('/categories-cours', ['uses' => 'App\Http\Controllers\CategorieController@index', 'as' => 'educational-admin.categories']);
 
 
-    Route::get('/courses', ['uses' => 'App\Http\Controllers\FormationController@index', 'as' => 'educational-admin.formations']);
+    Route::get('/courses', ['uses' => 'App\Http\Controllers\FormationController@indexP', 'as' => 'educational-admin.formations']);
     Route::get('/ajouter-cours', ['uses' => 'App\Http\Controllers\FormationController@create', 'as' => 'educational-admin.formations.create']);
-    Route::get('/modifier-cours/{id}', ['uses' => 'App\Http\Controllers\FormationController@udpate', 'as' => 'educational-admin.formations.update']);
+    Route::get('/modifier-cours/{id}', ['uses' => 'App\Http\Controllers\FormationController@udpateP', 'as' => 'educational-admin.formations.update']);
 
     Route::get('/profil', ['uses' => 'App\Http\Controllers\UserController@profil', 'as' => 'educational-admin.profile']);
     Route::post('/profil/update', ['uses' => 'App\Http\Controllers\UserController@updateProfil', 'as' => 'educational-admin.profile.update']);

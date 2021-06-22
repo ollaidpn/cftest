@@ -28,6 +28,10 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title">Information basique de l'utilisateur à ajouter</h5>
+                        <H6>Mot de passe par défaut: <strong class="p-1 bg-dark" style="border-radius: 4px; color: yellow">@FC2021</strong>
+                            {{-- <small>Le mot de passe par défaut est aussi en</small> --}}
+                        </H6>
+
                     </div>
                     <div class="card-body">
                     <form action="{{route('admin.settings.users.store')}}" enctype="multipart/form-data" method="post">

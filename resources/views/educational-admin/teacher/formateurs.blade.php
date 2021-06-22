@@ -37,7 +37,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Liste complète  </h4>
-                                <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary" style="color: white; font-weight:bold">+ Ajouter</a>
+                                <a href="{{ route('educational-admin.teachers.create')}}" class="btn btn-primary" style="color: white; font-weight:bold">+ Ajouter</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

@@ -42,8 +42,8 @@ return [
     |
     */
 
-    // 'asset_url'  => null,
-    'asset_base_url' => '/application'
+    'asset_url'  => null,
+    // 'asset_base_url' => 'http://localhost/public/',
 
     /*
     |--------------------------------------------------------------------------

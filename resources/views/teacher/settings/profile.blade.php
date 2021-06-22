@@ -95,13 +95,13 @@
                                         <input type="text" name="address" value="{{ $user->address ?? '' }}" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="col-lg-6 col-md-6 col-sm-12" hidden>
                                     <div class="form-group">
                                         <label class="form-label">Type de compte</label>
                                         <select class="custom-select" type="text" name="role_id">
-                                            @foreach ($roles as $role)
-                                                <option @if($role->id === $user->role_id) selected @endif value="{{ $role->id ?? '' }}">{{ $role->title ?? '' }}</option>
-                                            @endforeach
+                                            <option  selected value="{{ Auth::user()->role}}"></option>
+
+
                                         </select>
                                     </div>
                                 </div>

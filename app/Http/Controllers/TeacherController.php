@@ -41,7 +41,7 @@ class TeacherController extends Controller
         if ($teacher) {
 
             $teacher->delete();
-            session()-> flash('success',"Formateur suppprimer avec succes ");
+            session()-> flash('success',"Formateur suppprimé avec succès ");
             return back();
         }
     }
@@ -74,7 +74,7 @@ class TeacherController extends Controller
             'first_name'=>'required|string|max:255',
             'last_name'=>'required|string|max:255',
             'gender'=>'required|string|max:7',
-            'phone'=>'nullable|string|max:20|unique:users,phone',
+            'phone'=>'nullable',
             'email'=>'required|email|unique:users,email',
             'country'=>'required|string|max:255',
             'address'=>'required|string|max:255',
@@ -108,7 +108,7 @@ class TeacherController extends Controller
         }
 
         if ($user->save()) {
-            session()->flash('success', 'Formateurs ajouté avec succès !');
+            session()->flash('success', 'Formateur ajouté avec succès !');
         } else {
             session()->flash('error', 'Une erreur est survenu lors de la sauvegarde !');
         }

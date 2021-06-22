@@ -1,4 +1,4 @@
-@extends('layouts.educational-admin')
+@extends('layouts.admin')
 @section('content')
 <div class="content-body">
     <!-- row -->
@@ -19,6 +19,8 @@
             </div>
         </div>
 
+        @include('includes.messages')
+
         <div class="row">
             @if ($formations)
                 @foreach ($formations as $formation)
@@ -29,7 +31,6 @@
                                 <h4>{{ $formation->title ?? '' }}</h4>
                                 <ul class="list-group mb-3 list-group-flush">
                                     <li class="list-group-item px-0 border-top-0 d-flex justify-content-between"><span class="mb-0 text-muted">{{ $formation->created_at ?? '' }}</span>
-                                        {{-- <a href="javascript:void(0);"><i class="la la-heart-o mr-1"></i><strong>230</strong></a></li> --}}
                                     <li class="list-group-item px-0 d-flex justify-content-between">
                                         <span class="mb-0"><i class="fa fa-clock-o text-primary mr-2"></i>Durée :</span><strong>{{ $formation->nb_hours ?? '' }}</strong></li>
                                     <li class="list-group-item px-0 d-flex justify-content-between">
@@ -39,8 +40,8 @@
                                 </ul>
                                 <div class="justify-content-between">
                                     <a href="{{ route('educational-admin.formations.update', $formation->id) }}" class="btn btn-primary" style="color: white; font-weight:bold">Modifier</a>
-
                                     <a href="{{ route('front.course.show', $formation->slug ?? '') }}" class="btn btn-primary" style="color: white; font-weight:bold">Voir</a>
+                                    {{-- <a href="#deleteConfirmationModal" data-toggle='modal' id-formation={{$formation->id}} class="btn btn-danger float-right delete-btn"><i class="la la-trash-o" title="Supprimer"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -48,7 +49,7 @@
                 @endforeach
 
             @else
-                Aucune formations n'a été trouvé !
+                Aucune Formations n'a été trouvé !
             @endif
 
         </div>
@@ -59,4 +60,50 @@
 
     </div>
 </div>
+
+
+{{-- Delete Modal --}}
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Supprimer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                Voulez vous vraiment supprimer cette formation ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-primary font-weight-bold"
+                    data-dismiss="modal">Non</button>
+                <a href="#" type="button" id="btn-yes"
+                    class="btn btn-danger font-weight-bold">Oui</a>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('script')
+<script>
+
+    jQuery(document).ready(function() {
+
+        var btn_yes = $('#btn-yes');
+        var id_formation = 0;
+        var url = "{{route('admin.formations.delete','id-formation')}}"
+
+        $(document).on('click', '.delete-btn', function () {
+            console.log('delete clicked');
+            var _this = $(this);
+            id_formation = _this.attr('id-formation');
+            console.log(_this);
+            url = url.replace('id-formation', id_formation)
+            btn_yes.attr('href', url);
+        });
+
+    });
+
+</script>
 @endsection

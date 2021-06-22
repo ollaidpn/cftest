@@ -60,6 +60,8 @@ class UserController extends Controller
             'gender'=>'required|string|max:7',
             'phone'=>'nullable|string|max:20|unique:users,phone',
             'email'=>'required|email|unique:users,email',
+            'role_id'=>'required',
+
             'country'=>'required|string|max:255',
             'address'=>'required|string|max:255',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1024'
